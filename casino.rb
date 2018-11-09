@@ -9,7 +9,6 @@ class Casino
   end
 
   def exit_program
-    binding.pry
     puts "Thanks for playing! Bye!"
     exit(0)
   end
