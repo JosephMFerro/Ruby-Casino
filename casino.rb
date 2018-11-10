@@ -4,12 +4,10 @@ require_relative 'coin_flip'
 require_relative 'game_3'
 require_relative 'game_4'
 
-class Casino
+class Casino < Person
   attr_accessor :name, :balance
 
-  def initialize(name, balance)
-    @name = name
-    $balance = balance
+  def initialize
     main_menu
   end
 
@@ -25,7 +23,7 @@ class Casino
       when 1
         # highlow menu
       when 2
-        puts "f"
+        coin_flip_menu
       when 3
         # slots menu
       when 4
