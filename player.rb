@@ -1,14 +1,12 @@
+require_relative "casino"
 
-=======
-require "pry"
->>>>>>> c058bc24a7505267f52ad394f07912e84083c651
-require_relative "./casino"
-
-class Person < Casino
+class Person
   attr_accessor :name, :balance
 
-  def initialize
+  def initialize(name, balance)
     #initialize balance and set it to zero.
+    @name = name
+    @balance = balance
     @balance = 0
     get_user_info
   end
@@ -32,11 +30,13 @@ class Person < Casino
       sleep 3.5
       @balance = 5000
       puts "\n We're limiting your balance to #{@balance}. Your change returned is #{input - @balance}."
-    else
+    elsif @balance == 0
       puts "Please come back when you have some money to play with."
       exit_program
+    else
+      #send to next method...place to go.
+      main_menu
     end
   end
 end
 
-Person.new
