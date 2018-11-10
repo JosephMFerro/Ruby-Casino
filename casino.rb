@@ -1,4 +1,4 @@
-require_relative './player'
+require_relative 'player'
 require_relative 'game_1'
 require_relative 'coin_flip'
 require_relative 'game_3'
@@ -33,6 +33,10 @@ class Casino
       else 
         "Thats not a game!"
       end
+  end
+  def exit_program
+    puts "Thanks for playing! Bye!"
+    exit(0)
   end
 end
 Casino.new
