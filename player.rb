@@ -1,7 +1,4 @@
-
-=======
 require "pry"
->>>>>>> c058bc24a7505267f52ad394f07912e84083c651
 require_relative "./casino"
 
 class Person < Casino

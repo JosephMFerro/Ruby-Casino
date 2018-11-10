@@ -1,8 +1,8 @@
-require_relative 'player'
-require_relative 'game_1'
-require_relative 'coin_flip'
-require_relative 'game_3'
-require_relative 'game_4'
+require_relative "player"
+require_relative "game_1"
+require_relative "coin_flip"
+require_relative "game_3"
+require_relative "game_4"
 
 class Casino
   attr_accessor :name, :balance
@@ -21,22 +21,24 @@ class Casino
     puts "3. Slots"
     puts "4. Black Jack"
     @game_choice = gets.to_i
-      case @game_choice
-      when 1
-        # highlow menu
-      when 2
-        puts "f"
-      when 3
-        # slots menu
-      when 4
-        # black jack menu
-      else 
-        "Thats not a game!"
-      end
+    case @game_choice
+    when 1
+      # highlow menu
+    when 2
+      puts "f"
+    when 3
+      # slots menu
+    when 4
+      # black jack menu
+    else
+      "Thats not a game!"
+    end
   end
+
   def exit_program
     puts "Thanks for playing! Bye!"
     exit(0)
   end
 end
+
 Casino.new
