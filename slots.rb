@@ -1,4 +1,4 @@
-$balance = 50
+require_relative "./player"
 
 def multiplier(s1, s2, s3)
   if s1==s2 && s2==s3
@@ -30,7 +30,7 @@ def run_slots
   loop do
     puts "BALANCE:  $#{$balance}"
     print "How much would you like to bet? "
-    @bet_amt = gets.chomp.to_i
+    @bet_amt = gets.strip.to_i
     if @bet_amt > $balance
       until @bet_amt <= $balance
         puts "Like you have that kind of cash! Try again"

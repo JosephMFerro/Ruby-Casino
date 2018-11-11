@@ -1,4 +1,4 @@
-require_relative 'player'
+
 require_relative 'casino'
 
 $coin_arr = [

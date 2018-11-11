@@ -1,5 +1,4 @@
-require_relative "./wallet"
-require_relative "coin_flip"
+
 require_relative "casino"
 # require_relative "./welcome"
 
@@ -40,7 +39,7 @@ class Person
     puts "How much money are you playing with today?"
     #any string will be zero by default when you call to_i on it.
     input = gets.strip.to_i
-    $balance = input
+    $balance = input.to_i
     if $balance == 0
       puts "Please enter an integer and/or valid amount to start your balance with."
       $balance = gets.strip.to_i
@@ -53,7 +52,7 @@ class Person
       $balance = 5000
       puts "\n We're limiting your balance to $#{$balance}. Your change returned is $#{input - $balance}."
     else
-      $balance = sprintf("%.2f", $balance)
+      # $balance = sprintf("%.2f", $balance)
       puts "#{@name}, you're playing with $#{$balance}. Have fun!"
     end
   end
