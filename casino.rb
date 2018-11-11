@@ -1,21 +1,21 @@
 require_relative "./player.rb"
 require_relative "./highlow.rb"
 require_relative "./coin_flip"
-require_relative "game_3"
-require_relative "game_4"
+#require_relative "game_3"
+#require_relative "game_4"
 
 class Casino
   attr_accessor :name
   
 
   def initialize
-    puts instance_methods
+    #puts instance_methods
     Person.new
     main_menu
   end
 
   def main_menu
-    puts "Hello, #{@name}, what are we playing today?"
+    #--broken puts "Hello, #{$name}, what are we playing today?"
     puts "Type the game number and press ENTER"
     puts "1. High Low"
     puts "2. Coin Flip"

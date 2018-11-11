@@ -3,16 +3,12 @@
 #Win
 #Lose
 #Play/Play again
-    require_relative "./player.rb"
-    require_relative "./casino.rb"
-    require_relative "./wallet.rb"
-
   def start_hilo
     puts
     puts
     puts
-    puts "Welcome to High-Low #{@name}!"
-    puts "You have $#{@balance} in your accout."
+    puts "Welcome to High-Low #{$name}!"
+    puts "You have $#{$balance} in your accout."
     highlow_menu
   end
 
@@ -21,14 +17,14 @@
     puts "1) Play"
     puts "2) Cashout And Return To The Casino"
     puts "Please pick an option"
-
-    case @casino.user_input
-      when '1'
+    user_input = gets.to_i
+    case user_input
+      when 1
         highlow_bet
-      when '2'
-        puts "You have $#{@balance}."
-        puts "Thanks for playing Highlow #{@name}! Have a good day!"
-        @main_menu
+      when 2
+        puts "You have $#{$balance}."
+        puts "Thanks for playing Highlow #{$name}! Have a good day!"
+        main_menu
       else
         puts "Please pick a valid option from the menu."
         highlow_menu
@@ -37,17 +33,18 @@
 
   def highlow_bet
     puts "How much do you want to bet #{@name}?"
-    @player_bet = @casino.user_input.to_i
-    if @player_bet == 0
+    @bet_amt = gets.to_i
+    if @bet_amt == 0
       puts "You need to make a bet if you want to play!"
       highlow_bet
-    elsif @player_bet > player.bank_roll
+    elsif bet_amt > $balance.to_i
       puts "Sorry you are broke"
       puts 
       exit
     else
-      puts "You've placed a bet of $#{@player_bet}. Are you ready to play? (yes/no)"
-      if @casino.user_input == 'yes'
+      puts "You've placed a bet of $#{@bet_amt}. Are you ready to play? (yes/no)"
+      option = gets.strip.downcase.to_s
+      if option == 'yes'
         play_game
       else
         puts "Come back when you're ready to play!"
@@ -84,15 +81,14 @@
   end
 
   def win
-    @balance = @balance + (@player_bet * 2)
+    winnings = @bet_amt * 2
+    @balance += winnings
     puts "You now have $#{@balance}"
     play_again
   end
 
   def lose
-    @balance = @balance - @player_bet
+    @balance -= @bet_amt
     puts "You now have $#{@balance}"
     play_again
   end
-end
-start_hilo
