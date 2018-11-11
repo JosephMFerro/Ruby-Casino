@@ -37,7 +37,7 @@
     if @bet_amt == 0
       puts "You need to make a bet if you want to play!"
       highlow_bet
-    elsif bet_amt > $balance.to_i
+    elsif @bet_amt > $balance.to_i
       puts "Sorry you are broke"
       puts 
       exit

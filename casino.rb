@@ -15,7 +15,6 @@ class Casino
   end
 
   def main_menu
-    #--broken puts "Hello, #{$name}, what are we playing today?"
     puts "Type the game number and press ENTER"
     puts "1. High Low"
     puts "2. Coin Flip"
