@@ -1,10 +1,10 @@
-require_relative 'player'
+require_relative './player.rb'
 require_relative 'game_1'
 require_relative 'coin_flip'
-require_relative 'game_3'
+require_relative 'slots'
 require_relative 'game_4'
 
-class Casino < Person
+class Casino
   attr_accessor :name, :balance
 
   def initialize
@@ -18,6 +18,7 @@ class Casino < Person
     puts "2. Coin Flip"
     puts "3. Slots"
     puts "4. Black Jack"
+    puts "5. Quit"
     @game_choice = gets.to_i
       case @game_choice
       when 1
@@ -25,9 +26,11 @@ class Casino < Person
       when 2
         coin_flip_menu
       when 3
-        # slots menu
+        run_slots
       when 4
         # black jack menu
+      when 5
+        exit_program
       else 
         "Thats not a game!"
       end

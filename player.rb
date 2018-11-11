@@ -1,14 +1,14 @@
-require_relative "casino"
+require_relative 'casino'
+$balance = 0
 
 class Person
   attr_accessor :name, :balance
 
   def initialize(name, balance)
     #initialize balance and set it to zero.
-    @name = name
-    @balance = balance
-    @balance = 0
     get_user_info
+    @name = name
+    $balance = balance
   end
 
   def get_user_info
@@ -22,15 +22,15 @@ class Person
     #any string will be zero by default when you call to_i on it.
     input = gets.strip.to_i
     #if the answer is greater than 5000, then set their balance to 5000
-    @balance = input
+    $balance = input
     puts "#{@name}, you're playing with $#{@balance}. Have fun!"
-    if @balance > 5000
+    if $balance > 5000
       puts "\nThat's a bit too much money to gamble with. Maximum allowed is $5,000."
       #this is telling the Ruby program to wait 3.5 sec before moving to the next line of code.
       sleep 3.5
-      @balance = 5000
+      $balance = 5000
       puts "\n We're limiting your balance to #{@balance}. Your change returned is #{input - @balance}."
-    elsif @balance == 0
+    elsif $balance == 0
       puts "Please come back when you have some money to play with."
       exit_program
     else
