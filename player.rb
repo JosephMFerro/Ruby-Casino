@@ -1,10 +1,9 @@
 require_relative "./wallet"
-require_relative "coin_flip"
-require_relative "casino"
-# require_relative "./welcome"
+# require_relative "./coin_flip"
+# require_relative "./casino"
+require_relative "./welcome"
 
-class Person 
-
+class Person < Wallet
   def initialize
     #initialize balance and set it to zero.
     @name = nil
