@@ -1,8 +1,9 @@
 require_relative "./wallet"
+require_relative "coin_flip"
+require_relative "casino"
 # require_relative "./welcome"
 
-class Person
-  attr_accessor
+class Person 
 
   def initialize
     #initialize balance and set it to zero.
@@ -39,23 +40,21 @@ class Person
     puts "How much money are you playing with today?"
     #any string will be zero by default when you call to_i on it.
     input = gets.strip.to_i
-    @balance = input
-    if @balance == 0
+    $balance = input
+    if $balance == 0
       puts "Please enter an integer and/or valid amount to start your balance with."
-      @balance = gets.strip.to_i
+      $balance = gets.strip.to_i
       #"ABC".to_i returns 0
       #if the answer is greater than 5000, then set their balance to 5000
-    elsif @balance > 5000
+    elsif $balance > 5000
       puts "\nThat's a bit too much money to gamble with. Maximum allowed is $5,000."
       #this is telling the Ruby program to wait 3.5 sec before moving to the next line of code.
       sleep 3.5
-      @balance = 5000
-      puts "\n We're limiting your balance to $#{@balance}. Your change returned is $#{input - @balance}."
+      $balance = 5000
+      puts "\n We're limiting your balance to $#{$balance}. Your change returned is $#{input - $balance}."
     else
-      @balance = sprintf("%.2f", @balance)
-      puts "#{@name}, you're playing with $#{@balance}. Have fun!"
+      $balance = sprintf("%.2f", $balance)
+      puts "#{@name}, you're playing with $#{$balance}. Have fun!"
     end
   end
 end
-
-Person.new

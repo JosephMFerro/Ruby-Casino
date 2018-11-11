@@ -1,13 +1,14 @@
-require_relative "player"
+require_relative "./player.rb"
 require_relative "game_1"
 require_relative "coin_flip"
 require_relative "game_3"
 require_relative "game_4"
 
-class Casino < Person
-  attr_accessor :name, :balance
+class Casino
+  attr_accessor :name
 
   def initialize
+    Person.new
     main_menu
   end
 
