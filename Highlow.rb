@@ -39,7 +39,7 @@
     puts "How much do you want to bet #{@name}?"
     @player_bet = @casino.user_input.to_i
     if @player_bet == 0
-      puts "You have to make a bet if you want to play!"
+      puts "You need to make a bet if you want to play!"
       highlow_bet
     elsif @player_bet > player.bank_roll
       puts "Sorry you are broke"
@@ -84,14 +84,15 @@
   end
 
   def win
-    player.bank_roll = player.bank_roll + (@player_bet * 2)
+    @balance = @balance + (@player_bet * 2)
     puts "You now have $#{@balance}"
     play_again
   end
 
   def lose
-    player.bank_roll = player.bank_roll - @player_bet
+    @balance = @balance - @player_bet
     puts "You now have $#{@balance}"
     play_again
   end
 end
+start_hilo

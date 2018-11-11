@@ -1,5 +1,5 @@
 require_relative "./player.rb"
-require_relative "./Highlow.rb"
+require_relative "./highlow.rb"
 require_relative "./coin_flip"
 require_relative "game_3"
 require_relative "game_4"
