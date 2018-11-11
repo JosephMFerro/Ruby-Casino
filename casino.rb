@@ -1,5 +1,5 @@
 require_relative "./player.rb"
-require_relative "game_1"
+require_relative "./Highlow.rb"
 require_relative "./coin_flip"
 require_relative "game_3"
 require_relative "game_4"
@@ -25,7 +25,6 @@ class Casino
     case @game_choice
     when 1
       start_hilo
-
     when 2
       coin_flip_menu
     when 3

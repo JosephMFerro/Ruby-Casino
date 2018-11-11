@@ -3,6 +3,10 @@
 #Win
 #Lose
 #Play/Play again
+    require_relative "./player.rb"
+    require_relative "./casino.rb"
+    require_relative "./wallet.rb"
+
   def start_hilo
     puts
     puts
