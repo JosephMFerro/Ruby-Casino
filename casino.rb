@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 load './player.rb' 
 # load requires the file each time it is mentioned, rather than only once, like require. This will often fix "unititialized constant" errors
-require_relative "game_1"
-require_relative "coin_flip"
+require_relative "Highlow.rb"
+load './coin_flip.rb'
 require_relative "slots"
 require_relative "game_4"
     
-=======
-require_relative "./player.rb"
-require_relative "./highlow.rb"
-require_relative "./coin_flip"
-#require_relative "game_3"
-#require_relative "game_4"
->>>>>>> d00dd8af75f08c2622baf0feeebdef3d9988e4cb
 
 class Casino < Person
   attr_accessor :name

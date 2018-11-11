@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-
-require_relative "casino"
-# require_relative "./welcome"
-
-class Person 
-=======
 require_relative "./wallet"
 # require_relative "./coin_flip"
 # require_relative "./casino"
 require_relative "./welcome"
->>>>>>> d00dd8af75f08c2622baf0feeebdef3d9988e4cb
 
 class Person < Wallet
   def initialize
