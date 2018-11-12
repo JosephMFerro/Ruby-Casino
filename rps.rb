@@ -20,7 +20,7 @@ def rps_start
     rps_logo
     # {@name} is not functioning
     puts "Welcome to Rock, Paper, Scissors, #{@name}!".yellow
-    puts "You have $#{$balance} in your accout.".yellow
+    puts "You have $#{$balance} in your accout.".magenta
     rps_menu
     rps_bet_logic
     rps_logic
@@ -29,7 +29,7 @@ def rps_start
 end
 
 def rps_menu
-  puts "Choose from the options below:\n".yellow
+  puts "Choose from the options below:\n".orange
   puts "1) Play"
   puts "2) Cashout And Return To The Casino"
   puts "Please pick an option"
@@ -56,7 +56,7 @@ def rps_bet_logic
     puts "You need to make a bet if you want to play!".red
     rps_bet_logic
   elsif @bet_amt > $balance.to_i
-    puts "Please adjust your bet so that it does not exceed your current balance. Your balance is $#{$balance}."
+    puts "Please adjust your bet so that it does not exceed your current balance. Your balance is $#{$balance}.".magenta
     rps_bet_logic
   else
     puts "You've placed a bet of $#{@bet_amt}. Are you ready to play? (yes/no)".yellow
@@ -74,10 +74,10 @@ def rps_logic
   options = ["r", "p", "s"]
   computer_choice = options.sample
   #it's not bringing in @name
-  puts "#{@name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors"
+  puts "#{@name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors".orange
   @input = gets.strip.downcase
   while !(@input == "r" || @input == "p" || @input == "s")
-    puts "Invalid choice. Enter [r]ock, [p]aper or [s]cissors. Please try again."
+    puts "Invalid choice. Enter [r]ock, [p]aper or [s]cissors. Please try again.".red
     @input = gets.strip.downcase
   end
   @rand_choice = options.sample.strip
@@ -85,44 +85,44 @@ def rps_logic
 end
 
 def rps_game_operator
-  puts "you: #{@input} computer: #{@rand_choice}"
+  puts "you: #{@input} computer: #{@rand_choice}".blue
   # computer guess 's'
   if @input == "r" && @rand_choice == "s"
-    puts "Rock beats scissors. You win!"
+    puts "Rock beats scissors. You win!".orange
   elsif @input == "p" && @rand_choice == "s"
-    puts "Scissors beats paper. You lose"
+    puts "Scissors beats paper. You lose".red
   elsif @input == "s" && @rand_choice == "s"
-    puts "It's a tie!"
+    puts "It's a tie!".blue
     # computer guess 'p'
   elsif @input == "r" && @rand_choice == "p"
-    puts "Paper beats rock. You lose!"
+    puts "Paper beats rock. You lose!".red
   elsif @input == "p" && @rand_choice == "p"
-    puts "It's a tie!"
+    puts "It's a tie!".blue
   elsif @input == "s" && @rand_choice == "p"
-    puts "Scissors beats paper. You win"
+    puts "Scissors beats paper. You win".orange
     # computer guess 'r'
   elsif @input == "r" && @rand_choice == "r"
-    puts "It's a tie!"
+    puts "It's a tie!".blue
   elsif @input == "p" && @rand_choice == "r"
-    puts "Paper beats rock. You win!"
+    puts "Paper beats rock. You win!".orange
   elsif @input == "s" && @rand_choice == "r"
-    puts "Rock beats scissors. You lose!"
+    puts "Rock beats scissors. You lose!".red
   end
   play_again
 end
 
 def play_again
-  puts "\n Would you like to play another game?\n1) YES\n2)NO\n"
+  puts "\n Would you like to play another game?\n1) YES\n2)NO\n".yellow
   yes_no = gets.to_i
   case yes_no
   when 1
-    puts "\nPlay again!\n"
+    puts "\nPlay again!\n".yellow
     rps_bet_logic
   when 2
-    puts "\nBye! Thanks for playing!\n"
+    puts "\nBye! Thanks for playing!\n".orange
     main_menu
   else
-    puts "\nInvalid input. Please select an appropriate option.\n"
+    puts "\nInvalid input. Please select an appropriate option.\n".red
     play_again
   end
 end
