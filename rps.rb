@@ -17,17 +17,17 @@ def rps_start
   if $balance > 0
     rps_logo
     # {@name} is not functioning
-    puts "Welcome to Rock, Paper, Scissors, #{@name}!"
-    puts "You have $#{$balance} in your accout."
+    puts "Welcome to Rock, Paper, Scissors, #{@name}!".yellow
+    puts "You have $#{$balance} in your accout.".yellow
     rps_menu
     rps_bet_logic
     rps_logic
-  else puts "You don't have the funds to play. Since your balance is #{$balance}, I'm sending you back to the main menu."
+  else puts "You don't have the funds to play. Since your balance is #{$balance}, I'm sending you back to the main menu.".red
     main_menu   end
 end
 
 def rps_menu
-  puts "Welcome to Rock, Paper, Scissors!\n Choose from the options below:\n"
+  puts "Welcome to Rock, Paper, Scissors!\n Choose from the options below:\n".yellow
   puts "1) Play"
   puts "2) Cashout And Return To The Casino"
   puts "Please pick an option"
@@ -36,33 +36,33 @@ def rps_menu
   when 1
     rps_bet_logic
   when 2
-    puts "You have $#{$balance}."
+    puts "You have $#{$balance}.".orange
     # {@name} is not functioning
-    puts "Thanks for playing Rock, Paper, Scissors #{@name}! Have a good day!"
+    puts "Thanks for playing Rock, Paper, Scissors #{@name}! Have a good day!".orange
     main_menu
   else
-    puts "Please pick a valid option from the menu."
+    puts "Please pick a valid option from the menu.".red
     rps_menu
   end
 end
 
 def rps_bet_logic
   # {@name} is not functioning
-  puts "How much do you want to bet #{@name}?"
+  puts "How much do you want to bet #{@name}?".yellow
   @bet_amt = gets.to_i
   if @bet_amt == 0
-    puts "You need to make a bet if you want to play!"
+    puts "You need to make a bet if you want to play!".red
     rps_bet_logic
   elsif @bet_amt > $balance.to_i
     puts "Please adjust your bet so that it does not exceed your current balance. Your balance is $#{$balance}."
     rps_bet_logic
   else
-    puts "You've placed a bet of $#{@bet_amt}. Are you ready to play? (yes/no)"
+    puts "You've placed a bet of $#{@bet_amt}. Are you ready to play? (yes/no)".yellow
     option = gets.strip.downcase.to_s
     if option == "yes"
       rps_logic
     else
-      puts "Come back when you're ready to play!"
+      puts "Come back when you're ready to play!".red
       rps_menu
     end
   end
