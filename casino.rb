@@ -1,10 +1,10 @@
-load './player.rb' 
+load "./player.rb"
 # load requires the file each time it is mentioned, rather than only once, like require. This will often fix "unititialized constant" errors
 require_relative './welcome.rb'
-require_relative "Highlow.rb"
-load './coin_flip.rb'
-require_relative "slots"
-require_relative "game_4"
+require_relative "./Highlow.rb"
+load "./coin_flip.rb"
+require_relative "./slots"
+require_relative './rps'
 
 def menu_logo
   puts '
@@ -31,7 +31,7 @@ class Casino < Person
     puts "1. High Low"
     puts "2. Coin Flip"
     puts "3. Slots"
-    puts "4. Black Jack"
+    puts "4. Rock, Paper Scissors"
     @game_choice = gets.to_i
     gamer_choice
   end
@@ -51,7 +51,7 @@ class Casino < Person
         slots_logo
         run_slots
       when 4
-        # black jack menu
+        rps_start
       else 
         until @game_choice < 5
           puts "Thats not a game!"

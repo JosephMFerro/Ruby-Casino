@@ -1,25 +1,15 @@
-load "./player.rb"
-
-def rps_logo
-  puts 
- " *******                    **     *******                                    ********         **                                        
-  /**////**                  /**    /**////**           ******                 **//////         //                                         
-  /**   /**   ******   ***** /**  **/**   /**  ******  /**///**  *****  ******/**         *****  **  ******  ******  ******  ******  ******
-  /*******   **////** **///**/** ** /*******  //////** /**  /** **///**//**//*/********* **///**/** **////  **////  **////**//**//* **//// 
-  /**///**  /**   /**/**  // /****  /**////    ******* /****** /******* /** / ////////**/**  // /**//***** //***** /**   /** /** / //***** 
-  /**  //** /**   /**/**   **/**/** /**       **////** /**///  /**////  /**          /**/**   **/** /////** /////**/**   /** /**    /////**
-  /**   //**//****** //***** /**//**/**      //********/**     //******/***    ******** //***** /** ******  ****** //****** /***    ****** 
-  //     //  //////   /////  //  // //        //////// //       ////// ///    ////////   /////  // //////  //////   //////  ///    //////  
-  "
-end
+require_relative "./player"
 
 def rps_start
   rps_logo
-  puts "Welcome to Rock, Paper, Scissors, #{@name}!"
-  puts "You have $#{$balance} in your accout."
-  rps_menu
   rps_bet_logic
   rps_logic
+  puts
+  puts
+  puts
+  puts "Welcome to Rock, Paper, Scissors, #{$name}!"
+  puts "You have $#{$balance} in your accout."
+  rps_menu
 end
 
 def rps_menu
@@ -33,7 +23,7 @@ def rps_menu
     rps_bet_logic
   when 2
     puts "You have $#{$balance}."
-    puts "Thanks for playing Rock, Paper, Scissors #{@name}! Have a good day!"
+    puts "Thanks for playing Rock, Paper, Scissors #{$name}! Have a good day!"
     main_menu
   else
     puts "Please pick a valid option from the menu."
@@ -42,14 +32,15 @@ def rps_menu
 end
 
 def rps_bet_logic
-  puts "How much do you want to bet #{@name}?"
+  puts "How much do you want to bet #{$name}?"
   @bet_amt = gets.to_i
   if @bet_amt == 0
     puts "You need to make a bet if you want to play!"
     rps_bet_logic
   elsif @bet_amt > $balance.to_i
     puts "Sorry you are broke"
-    exit(0)
+    puts
+    exit
   else
     puts "You've placed a bet of $#{@bet_amt}. Are you ready to play? (yes/no)"
     option = gets.strip.downcase.to_s
@@ -66,9 +57,9 @@ def rps_logic
   options = ["r", "p", "s"]
   computer_choice = options[rand(options.length)]
   #it's not bringing in @name
-  puts "#{@name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors"
+  puts "#{$name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors"
   @input = gets.strip.downcase
-  while !(@input == "r" || @input == "p" || @input == "s")
+  while !(@input == "r" || @input == "p" || @input = "s")
     puts "Invalid choice. Enter [r]ock, [p]aper or [s]cissors. Please try again."
     @input = gets.strip.downcase
   end
@@ -104,5 +95,13 @@ def rps_game_operator
   rps_menu
 end
 
-
-
+def rps_logo
+  puts " *******                    **     *******                                    ********         **                                        
+  /**////**                  /**    /**////**           ******                 **//////         //                                         
+  /**   /**   ******   ***** /**  **/**   /**  ******  /**///**  *****  ******/**         *****  **  ******  ******  ******  ******  ******
+  /*******   **////** **///**/** ** /*******  //////** /**  /** **///**//**//*/********* **///**/** **////  **////  **////**//**//* **//// 
+  /**///**  /**   /**/**  // /****  /**////    ******* /****** /******* /** / ////////**/**  // /**//***** //***** /**   /** /** / //***** 
+  /**  //** /**   /**/**   **/**/** /**       **////** /**///  /**////  /**          /**/**   **/** /////** /////**/**   /** /**    /////**
+  /**   //**//****** //***** /**//**/**      //********/**     //******/***    ******** //***** /** ******  ****** //****** /***    ****** 
+  //     //  //////   /////  //  // //        //////// //       ////// ///    ////////   /////  // //////  //////   //////  ///    //////  "
+end
