@@ -1,3 +1,5 @@
+require "pry"
+require "colorize"
 load "./player.rb"
 
 def rps_logo
