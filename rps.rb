@@ -29,7 +29,7 @@ def rps_start
 end
 
 def rps_menu
-  puts "Choose from the options below:\n".orange
+  puts "Choose from the options below:\n".magenta
   puts "1) Play"
   puts "2) Cashout And Return To The Casino"
   puts "Please pick an option"
@@ -38,9 +38,9 @@ def rps_menu
   when 1
     rps_bet_logic
   when 2
-    puts "You have $#{$balance}.".orange
+    puts "You have $#{$balance}.".magenta
     # {@name} is not functioning
-    puts "Thanks for playing Rock, Paper, Scissors #{@name}! Have a good day!".orange
+    puts "Thanks for playing Rock, Paper, Scissors #{@name}! Have a good day!".magenta
     main_menu
   else
     puts "Please pick a valid option from the menu.".red
@@ -74,7 +74,7 @@ def rps_logic
   options = ["r", "p", "s"]
   computer_choice = options.sample
   #it's not bringing in @name
-  puts "#{@name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors".orange
+  puts "#{@name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors".magenta
   @input = gets.strip.downcase
   while !(@input == "r" || @input == "p" || @input == "s")
     puts "Invalid choice. Enter [r]ock, [p]aper or [s]cissors. Please try again.".red
@@ -88,7 +88,7 @@ def rps_game_operator
   puts "you: #{@input} computer: #{@rand_choice}".blue
   # computer guess 's'
   if @input == "r" && @rand_choice == "s"
-    puts "Rock beats scissors. You win!".orange
+    puts "Rock beats scissors. You win!".magenta
   elsif @input == "p" && @rand_choice == "s"
     puts "Scissors beats paper. You lose".red
   elsif @input == "s" && @rand_choice == "s"
@@ -99,12 +99,12 @@ def rps_game_operator
   elsif @input == "p" && @rand_choice == "p"
     puts "It's a tie!".blue
   elsif @input == "s" && @rand_choice == "p"
-    puts "Scissors beats paper. You win".orange
+    puts "Scissors beats paper. You win".magenta
     # computer guess 'r'
   elsif @input == "r" && @rand_choice == "r"
     puts "It's a tie!".blue
   elsif @input == "p" && @rand_choice == "r"
-    puts "Paper beats rock. You win!".orange
+    puts "Paper beats rock. You win!".magenta
   elsif @input == "s" && @rand_choice == "r"
     puts "Rock beats scissors. You lose!".red
   end
@@ -119,7 +119,7 @@ def play_again
     puts "\nPlay again!\n".yellow
     rps_bet_logic
   when 2
-    puts "\nBye! Thanks for playing!\n".orange
+    puts "\nBye! Thanks for playing!\n".magenta
     main_menu
   else
     puts "\nInvalid input. Please select an appropriate option.\n".red
