@@ -15,6 +15,7 @@ def coin_flip_logo
   |:  1   |:  1   |:  |:  |   |      |:  |   |:  1   |:  |:  |    
   |::.. . |::.. . |::.|::.|   |      |::.|   |::.. . |::.|::.|    
   `-------`-------`---`--- ---'      `---'   `-------`---`---'    
+  at DPLcasino
   "
 end
 
@@ -32,6 +33,7 @@ def coin_flip_menu
     start_game
   elsif $player_choice == 'quit'
     puts "Good Bye"
+    main_menu
   else 
     puts "Whats that supposed to mean?"
   end
@@ -57,10 +59,10 @@ def start_game
 
   if @user_choice == @system_choice
     puts "Lucky Duck! You won $#{@bet_amt}"
-    $balance += @bet_amt * 2
+    $balance += @bet_amt
   else
     puts "Loser! The Correct answer was #{@system_choice}. You lost $#{@bet_amt}!"
-    $balance -= @bet_amt * 2
+    $balance -= @bet_amt 
     if $balance < 0
       puts "--NEGATIVE BALANCE--"
       puts "You owe us #{$balance * -1} bucks!"
@@ -70,5 +72,8 @@ def start_game
     puts "BALANCE: $#{$balance}"
     puts "Play again? (start/quit)"
     $player_choice = gets.strip.to_s
-end
+  end
+  if $player_choice == 'quit'
+    main_menu
+  end
 end

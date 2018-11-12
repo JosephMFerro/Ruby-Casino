@@ -48,7 +48,7 @@ class Person < Wallet
     elsif $balance > 5000
       puts "\nThat's a bit too much money to gamble with. Maximum allowed is $5,000."
       #this is telling the Ruby program to wait 3.5 sec before moving to the next line of code.
-      sleep 3.5
+      sleep 1
       $balance = 5000
       puts "\n We're limiting your balance to $#{$balance}. Your change returned is $#{input - $balance}."
     else

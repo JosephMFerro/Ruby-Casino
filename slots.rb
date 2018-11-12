@@ -12,21 +12,19 @@ end
 
 def slots_logo
   puts '
-  ******** **         *******   **********  ********
-  **////// /**        **/////** /////**///  **////// 
- /**       /**       **     //**    /**    /**       
- /*********/**      /**      /**    /**    /*********
- ////////**/**      /**      /**    /**    ////////**
-        /**/**      //**     **     /**           /**
-  ******** /******** //*******      /**     ******** 
- ////////  ////////   ///////       //     ////////  
+  oooooooo8 ooooo         ooooooo   ooooooooooo  oooooooo8  
+  888         888        o888   888o 88  888  88 888         
+   888oooooo  888        888     888     888      888oooooo  
+          888 888      o 888o   o888     888             888 
+  o88oooo888 o888ooooo88   88ooo88      o888o    o88oooo888  
+  at DPLcasino
   '
-puts "---WELCOME TO RUBY SLOTS---"
- 
+  puts "---WELCOME TO RUBY SLOTS---"
 end
+ 
 def run_slots
   slotImageList = %w[Cherry Orange Plum Bell Melon Bar]
-  slots_logo
+  
   loop do
     puts "BALANCE:  $#{$balance}"
     print "How much would you like to bet? "
@@ -66,15 +64,23 @@ def run_slots
       run_jackpot
     else
       @winnings = @bet_amt * multiplier(slotImage1, slotImage2, slotImage3)
-      puts "You have won $#{@winnings}!"
+      if @winnings > 0
+        puts "You won $#{@winnings}!"
+      else
+        puts "Now you only have $#{$balance}!"
+      end
     end
 
     $balance += @winnings
 
-    print "Would you like to continue? (yes to continue) "
-    unless gets.chomp=="yes"
-      puts "BALANCE: #{$balance}"
-      break
+    print "Would you like to continue? (yes/no)"
+    continue_choice = gets.strip.to_s
+    if continue_choice == "yes"
+      run_slots
+    elsif continue_choice == "no"
+      main_menu
+    else
+      puts "Gimme a real answer!"
     end
   end
 end
