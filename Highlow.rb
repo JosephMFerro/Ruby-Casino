@@ -72,7 +72,8 @@
 
   def play_again
     puts "Do you want to play again #{@name}? (yes/no)"
-    if @casino.user_input == 'yes'
+    option = gets.strip.downcase.to_s
+    if option == 'yes'
       highlow_bet
     else
       puts "Thank you for playing #{@name}! Come back soon!"
