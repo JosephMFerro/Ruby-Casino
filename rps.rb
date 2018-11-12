@@ -16,6 +16,7 @@ end
 def rps_start
   if $balance > 0
     rps_logo
+    # {@name} is not functioning
     puts "Welcome to Rock, Paper, Scissors, #{@name}!"
     puts "You have $#{$balance} in your accout."
     rps_menu
@@ -36,6 +37,7 @@ def rps_menu
     rps_bet_logic
   when 2
     puts "You have $#{$balance}."
+    # {@name} is not functioning
     puts "Thanks for playing Rock, Paper, Scissors #{@name}! Have a good day!"
     main_menu
   else
@@ -45,6 +47,7 @@ def rps_menu
 end
 
 def rps_bet_logic
+  # {@name} is not functioning
   puts "How much do you want to bet #{@name}?"
   @bet_amt = gets.to_i
   if @bet_amt == 0
