@@ -17,6 +17,7 @@ end
 
 def rps_start
   if $balance > 0
+    #logo is not displaying
     rps_logo
     # {@name} is not functioning
     puts "Welcome to Rock, Paper, Scissors, #{@name}!".yellow
