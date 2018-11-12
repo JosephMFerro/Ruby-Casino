@@ -109,10 +109,10 @@ def rps_game_operator
   elsif @input == "s" && @rand_choice == "r"
     puts "Rock beats scissors. You lose!".red
   end
-  play_again
+  play_rps_again
 end
 
-def play_again
+def play_rps_again
   puts "\n Would you like to play another game?\n1) YES\n2)NO\n".yellow
   yes_no = gets.to_i
   case yes_no
@@ -124,6 +124,6 @@ def play_again
     main_menu
   else
     puts "\nInvalid input. Please select an appropriate option.\n".red
-    play_again
+    play_rps_again
   end
 end
