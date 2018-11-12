@@ -32,6 +32,7 @@ class Casino < Person
     puts "2. Coin Flip"
     puts "3. Slots"
     puts "4. Rock, Paper Scissors"
+    puts "5. Quit"
     @game_choice = gets.to_i
     gamer_choice
   end
@@ -52,6 +53,8 @@ class Casino < Person
         run_slots
       when 4
         rps_start
+      when 5
+        exit_program
       else 
         until @game_choice < 5
           puts "Thats not a game!"
