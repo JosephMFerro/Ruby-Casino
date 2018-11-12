@@ -3,7 +3,7 @@ load "./player.rb"
 require_relative "Highlow.rb"
 load "./coin_flip.rb"
 require_relative "slots"
-require_relative "rock_paper_scissors.rb"
+require_relative "./rock_paper_scissors.rb"
 
 class Casino < Person
   attr_accessor :name

@@ -2,8 +2,6 @@ require_relative "./player"
 
 def rps_start
   rps_logo
-  rps_bet_logic
-  rps_logic
   puts
   puts
   puts
@@ -23,7 +21,7 @@ def rps_menu
     rps_bet_logic
   when 2
     puts "You have $#{$balance}."
-    puts "Thanks for playing Rock, Paper, Scissors #{$name}! Have a good day!"
+    puts "Thanks for playing Rock, Paper, Scissors, #{$name}! Have a good day!"
     main_menu
   else
     puts "Please pick a valid option from the menu."
@@ -56,7 +54,7 @@ end
 def rps_logic
   options = ["r", "p", "s"]
   computer_choice = options[rand(options.length)]
-  #it's not bringing in @name
+  #it's not bringing in name
   puts "#{$name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors"
   @input = gets.strip.downcase
   while !(@input == "r" || @input == "p" || @input = "s")
@@ -68,30 +66,45 @@ def rps_logic
 end
 
 def rps_game_operator
-  puts "you: #{@input} computer: #{@rand_choice}"
+  puts "***You***: #{@input} ***Computer***: #{@rand_choice}"
   # computer guess 's'
   if @input == "r" && @rand_choice == "s"
+    puts
+    puts
     puts "Rock beats scissors. You win!"
   elsif @input == "p" && @rand_choice == "s"
+    puts
+    puts
     puts "Scissors beats paper. You lose"
   elsif @input == "s" && @rand_choice == "s"
+    puts
+    puts
     puts "It's a tie!"
     # computer guess 'p'
   elsif @input == "r" && @rand_choice == "p"
     puts "Paper beats rock. You lose!"
   elsif @input == "p" && @rand_choice == "p"
+    puts
+    puts
     puts "It's a tie!"
   elsif @input == "s" && @rand_choice == "p"
+    puts
+    puts
     puts "Scissors beats paper. You win"
     # computer guess 'r'
   elsif @input == "r" && @rand_choice == "r"
+    puts
+    puts
     puts "It's a tie!"
   elsif @input == "p" && @rand_choice == "r"
+    puts
+    puts
     puts "Paper beats rock. You win!"
   elsif @input == "s" && @rand_choice == "r"
+    puts
+    puts
     puts "Rock beats scissors. You lose!"
   end
-
   rps_menu
 end
 
