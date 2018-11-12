@@ -29,7 +29,7 @@ def rps_start
 end
 
 def rps_menu
-  puts "Welcome to Rock, Paper, Scissors!\n Choose from the options below:\n".yellow
+  puts "Choose from the options below:\n".yellow
   puts "1) Play"
   puts "2) Cashout And Return To The Casino"
   puts "Please pick an option"
