@@ -2,10 +2,13 @@ Casino at DevPoint Labs
 Our casino was built using the Ruby language. It is meant to be operated via the terminal. The below individuals contributed to this project:
 
 Contributors:
+
+<p>
 <a href="https://github.com/kevinptx">Kevin Peery</a>
 <a href="https://github.com/JosephMFerro">Joseph Ferro</a>
 <a href="https://github.com/paraviking">Ryan Lundquist</a>
 <a href="https://github.com/MichaelJDaniel">Michael Daniel</a>
+</p>
 
 Games Within Our App:
 Coin Flip
