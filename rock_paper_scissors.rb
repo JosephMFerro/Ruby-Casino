@@ -23,7 +23,7 @@ def rps_menu
     rps_bet_logic
   when 2
     puts "You have $#{$balance}."
-    puts "Thanks for playing Highlow #{$name}! Have a good day!"
+    puts "Thanks for playing Rock, Paper, Scissors #{$name}! Have a good day!"
     main_menu
   else
     puts "Please pick a valid option from the menu."
@@ -57,7 +57,7 @@ def rps_logic
   options = ["r", "p", "s"]
   computer_choice = options[rand(options.length)]
   #it's not bringing in @name
-  puts "#{@name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors"
+  puts "#{$name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors"
   @input = gets.strip.downcase
   while !(@input == "r" || @input == "p" || @input = "s")
     puts "Invalid choice. Enter [r]ock, [p]aper or [s]cissors. Please try again."
