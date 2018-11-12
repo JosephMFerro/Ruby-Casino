@@ -2,6 +2,8 @@ require "pry"
 require "colorize"
 load "./player.rb"
 
+#need to create method to subtract from balance.
+#balance is not being incremented or decremented.
 def rps_logo
   puts
   " *******                    **     *******                                    ********         **                                        
