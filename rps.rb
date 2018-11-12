@@ -1,8 +1,8 @@
 load "./player.rb"
 
 def rps_logo
-  puts 
- " *******                    **     *******                                    ********         **                                        
+  puts
+  " *******                    **     *******                                    ********         **                                        
   /**////**                  /**    /**////**           ******                 **//////         //                                         
   /**   /**   ******   ***** /**  **/**   /**  ******  /**///**  *****  ******/**         *****  **  ******  ******  ******  ******  ******
   /*******   **////** **///**/** ** /*******  //////** /**  /** **///**//**//*/********* **///**/** **////  **////  **////**//**//* **//// 
@@ -14,16 +14,19 @@ def rps_logo
 end
 
 def rps_start
-  rps_logo
-  puts "Welcome to Rock, Paper, Scissors, #{@name}!"
-  puts "You have $#{$balance} in your accout."
-  rps_menu
-  rps_bet_logic
-  rps_logic
+  if $balance > 0
+    rps_logo
+    puts "Welcome to Rock, Paper, Scissors, #{@name}!"
+    puts "You have $#{$balance} in your accout."
+    rps_menu
+    rps_bet_logic
+    rps_logic
+  else puts "You don't have the funds to play. Since your balance is #{$balance}, I'm sending you back to the main menu."
+    main_menu   end
 end
 
 def rps_menu
-  puts "ROCK, PAPER, SCISSORS"
+  puts "Welcome to Rock, Paper, Scissors!\n Choose from the options below:\n"
   puts "1) Play"
   puts "2) Cashout And Return To The Casino"
   puts "Please pick an option"
@@ -48,8 +51,8 @@ def rps_bet_logic
     puts "You need to make a bet if you want to play!"
     rps_bet_logic
   elsif @bet_amt > $balance.to_i
-    puts "Sorry you are broke"
-    exit(0)
+    puts "Please adjust your bet so that it does not exceed your current balance. Your balance is $#{$balance}."
+    rps_bet_logic
   else
     puts "You've placed a bet of $#{@bet_amt}. Are you ready to play? (yes/no)"
     option = gets.strip.downcase.to_s
@@ -64,7 +67,7 @@ end
 
 def rps_logic
   options = ["r", "p", "s"]
-  computer_choice = options[rand(options.length)]
+  computer_choice = options.sample
   #it's not bringing in @name
   puts "#{@name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors"
   @input = gets.strip.downcase
@@ -100,9 +103,21 @@ def rps_game_operator
   elsif @input == "s" && @rand_choice == "r"
     puts "Rock beats scissors. You lose!"
   end
-
-  rps_menu
+  play_again
 end
 
-
-
+def play_again
+  puts "\n Would you like to play another game?\n1) YES\n2)NO\n"
+  yes_no = gets.to_i
+  case yes_no
+  when 1
+    puts "\nPlay again!\n"
+    rps_bet_logic
+  when 2
+    puts "\nBye! Thanks for playing!\n"
+    main_menu
+  else
+    puts "\nInvalid input. Please select an appropriate option.\n"
+    play_again
+  end
+end
