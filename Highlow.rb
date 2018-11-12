@@ -32,7 +32,7 @@
   end
 
   def highlow_bet
-    puts "How much do you want to bet #{@name}?"
+    puts "How much do you want to bet #{$name}?"
     @bet_amt = gets.to_i
     if @bet_amt == 0
       puts "You need to make a bet if you want to play!"
@@ -71,25 +71,25 @@
   end
 
   def play_again
-    puts "Do you want to play again #{@name}? (yes/no)"
+    puts "Do you want to play again #{$name}? (yes/no)"
     option = gets.strip.downcase.to_s
     if option == 'yes'
       highlow_bet
     else
-      puts "Thank you for playing #{@name}! Come back soon!"
-      @main_menu.menu
+      puts "Thank you for playing #{$name}! Come back soon!"
+      highlow_menu
     end
   end
 
   def win
     winnings = @bet_amt * 2
-    @balance += winnings
-    puts "You now have $#{@balance}"
+    $balance += winnings
+    puts "You now have $#{$balance}"
     play_again
   end
 
   def lose
-    @balance -= @bet_amt
-    puts "You now have $#{@balance}"
+    $balance -= @bet_amt
+    puts "You now have $#{$balance}"
     play_again
   end
