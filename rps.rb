@@ -1,12 +1,11 @@
 require "pry"
 require "colorize"
-load "./player.rb"
+require_relative "player.rb"
 
-#need to create method to subtract from balance.
-#balance is not being incremented or decremented.
+#need to create method to add and/or subtract from balance.
+
 def rps_logo
-  puts
-  " *******                    **     *******                                    ********         **                                        
+  puts " *******                    **     *******                                    ********         **                                        
   /**////**                  /**    /**////**           ******                 **//////         //                                         
   /**   /**   ******   ***** /**  **/**   /**  ******  /**///**  *****  ******/**         *****  **  ******  ******  ******  ******  ******
   /*******   **////** **///**/** ** /*******  //////** /**  /** **///**//**//*/********* **///**/** **////  **////  **////**//**//* **//// 
@@ -21,8 +20,8 @@ def rps_start
   if $balance > 0
     #logo is not displaying
     rps_logo
-    # {@name} is not functioning
-    puts "Welcome to Rock, Paper, Scissors, #{@name}!".yellow
+    # {$name} is not functioning
+    puts "Welcome to Rock, Paper, Scissors, #{$name}!".yellow
     puts "You have $#{$balance} in your accout.".magenta
     rps_menu
     rps_bet_logic
@@ -42,8 +41,7 @@ def rps_menu
     rps_bet_logic
   when 2
     puts "You have $#{$balance}.".magenta
-    # {@name} is not functioning
-    puts "Thanks for playing Rock, Paper, Scissors #{@name}! Have a good day!".magenta
+    puts "Thanks for playing Rock, Paper, Scissors #{$name}! Have a good day!".magenta
     main_menu
   else
     puts "Please pick a valid option from the menu.".red
@@ -52,8 +50,7 @@ def rps_menu
 end
 
 def rps_bet_logic
-  # {@name} is not functioning
-  puts "How much do you want to bet #{@name}?".yellow
+  puts "How much do you want to bet #{$name}?".yellow
   @bet_amt = gets.to_i
   if @bet_amt == 0
     puts "You need to make a bet if you want to play!".red
@@ -76,8 +73,7 @@ end
 def rps_logic
   options = ["r", "p", "s"]
   computer_choice = options.sample
-  #it's not bringing in @name
-  puts "#{@name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors".magenta
+  puts "#{$name}, what's your choice? Type [r] for Rock, [p] for Paper or [s] for Scissors".magenta
   @input = gets.strip.downcase
   while !(@input == "r" || @input == "p" || @input == "s")
     puts "Invalid choice. Enter [r]ock, [p]aper or [s]cissors. Please try again.".red

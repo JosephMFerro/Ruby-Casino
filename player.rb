@@ -6,7 +6,7 @@ require_relative "./welcome"
 class Person < Wallet
   def initialize
     #initialize balance and set it to zero.
-    @name = nil
+    $name = "test"
     super()
     get_user_info
   end
@@ -21,11 +21,11 @@ class Person < Wallet
   end
 
   def get_player_name
-    @name = gets.strip.to_s
+    $name = gets.strip.to_s
     #use RegEx to check that the name is an upper (A-Z) or lowercase (a-z) letters and that it is greater than 3 characters: a{3,}	3 or more of a
-    if @name.match(/[a-zA-Z]{3,}/)
+    if $name.match(/[a-zA-Z]{3,}/)
       puts
-      puts "Hello #{@name}, how much money are you playing with today? Note: Our max is $5,000."
+      puts "Hello #{$name}, how much money are you playing with today? Note: Our max is $5,000."
       get_balance
     else
       puts "Please provide a valid name meeting the following criteria: upper (A-Z) or lowercase (a-z) letters greater than 3 characters total. Let's try again."
@@ -53,7 +53,7 @@ class Person < Wallet
       puts "\n We're limiting your balance to $#{$balance}. Your change returned is $#{input - $balance}."
     else
       # $balance = sprintf("%.2f", $balance)
-      puts "#{@name}, you're playing with $#{$balance}. Have fun!"
+      puts "#{$name}, you're playing with $#{$balance}. Have fun!"
     end
   end
 end

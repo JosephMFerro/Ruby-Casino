@@ -19,15 +19,15 @@ def highlow_menu
   puts "Please pick an option"
   user_input = gets.to_i
   case user_input
-    when 1
-      highlow_bet
-    when 2
-      puts "You have $#{$balance}."
-      puts "Thanks for playing Highlow #{$name}! Have a good day!"
-      main_menu
-    else
-      puts "Please pick a valid option from the menu."
-      highlow_menu
+  when 1
+    highlow_bet
+  when 2
+    puts "You have $#{$balance}."
+    puts "Thanks for playing Highlow #{$name}! Have a good day!"
+    main_menu
+  else
+    puts "Please pick a valid option from the menu."
+    highlow_menu
   end
 end
 
@@ -39,12 +39,12 @@ def highlow_bet
     highlow_bet
   elsif @bet_amt > $balance.to_i
     puts "Sorry you are broke"
-    puts 
+    puts
     exit
   else
     puts "You've placed a bet of $#{@bet_amt}. Are you ready to play? (yes/no)"
     option = gets.strip.downcase.to_s
-    if option == 'yes'
+    if option == "yes"
       play_game
     else
       puts "Come back when you're ready to play!"
@@ -73,7 +73,7 @@ end
 def play_again
   puts "Do you want to play again #{$name}? (yes/no)"
   option = gets.strip.downcase.to_s
-  if option == 'yes'
+  if option == "yes"
     highlow_bet
   else
     puts "Thank you for playing #{$name}! Come back soon!"
