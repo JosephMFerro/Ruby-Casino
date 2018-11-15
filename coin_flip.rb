@@ -1,5 +1,6 @@
 
 require_relative 'casino'
+require "colorize"
 
 $coin_arr = [
   "heads",
@@ -16,7 +17,7 @@ def coin_flip_logo
   |::.. . |::.. . |::.|::.|   |      |::.|   |::.. . |::.|::.|    
   `-------`-------`---`--- ---'      `---'   `-------`---`---'    
   at DPLcasino
-  "
+  ".yellow
 end
 
 def coin_flip_menu
